@@ -1,0 +1,144 @@
+import sys
+
+def main():
+    x = float(input("Enter a value for x: "))
+    
+   
+    if not (0 <= x <= 1):
+        print("Error: The value of x must be between 0 and 1.")
+        sys.exit()  
+   
+    print("Value is valid. Proceeding with calculations...")
+   
+
+if __name__ == "__main__":
+    main()
+
+2. def main():
+    print("Welcome! Let's identify some triangles for Telly Monster!")
+    side1 = float(input("Enter the length of the first side: "))
+    side2 = float(input("Enter the length of the second side: "))
+    side3 = float(input("Enter the length of the third side: "))
+    
+    
+    if side1 == side2 == side3:
+        print("This is an equilateral triangle!")
+    elif side1 == side2 or side2 == side3 or side1 == side3:
+        print("This is an isosceles triangle!")
+    else:
+        print("This is a scalene triangle!")
+
+if __name__ == "__main__":
+    main()
+
+3. def main():
+    age = int(input("Please enter your age: "))
+    
+   
+    if age < 0:
+        classification = "Invalid age"
+    elif age <= 12:
+        classification = "child"
+    elif age <= 19:
+        classification = "teenager"
+    elif age <= 65:
+        classification = "adult"
+    else:
+        classification = "senior"
+        
+    print(f"You are classified as a(n): {classification}")
+    
+   
+    if age >= 100:
+        print("Congratulations for appearing on the Smucker’s jar!")
+
+if __name__ == "__main__":
+    main()
+
+4. from graphics import GraphWin, Rectangle, Point, Text
+
+def is_button_clicked(click_point, rect):
+    """Returns True if click_point is inside rect, False otherwise."""
+    p1 = rect.getP1()  
+    p2 = rect.getP2()  
+    
+    
+    x_min = min(p1.getX(), p2.getX())
+    x_max = max(p1.getX(), p2.getX())
+    y_min = min(p1.getY(), p2.getY())
+    y_max = max(p1.getY(), p2.getY())
+    
+    click_x = click_point.getX()
+    click_y = click_point.getY()
+    
+   
+    if x_min <= click_x <= x_max and y_min <= click_y <= y_max:
+        return True
+    else:
+        return False
+
+def main():
+    win = GraphWin("Button Clicker", 400, 400)
+    
+   
+    button = Rectangle(Point(150, 175), Point(250, 225))
+    button.setFill("lightgray")
+    button.draw(win)
+    
+    label = Text(Point(200, 200), "Click Me")
+    label.draw(win)
+    
+    display_text = Text(Point(200, 300), "Click anywhere to start")
+    display_text.draw(win)
+    
+   
+    for i in range(10):
+        click = win.getMouse()
+        clicked_inside = is_button_clicked(click, button)
+        
+        if clicked_inside:
+            display_text.setText(f"Click {i+1}: Button was clicked!")
+        else:
+            display_text.setText(f"Click {i+1}: Missed the button!")
+            
+   
+    display_text.setText("Done! Click once more to exit.")
+    win.getMouse()
+    win.close()
+
+if __name__ == "__main__":
+    main()
+
+5. def check_factor_found(n):
+    """
+    Returns True if a factor is found (meaning n is composite).
+    Returns False if no factors are found (meaning n is prime).
+    """
+    found = False 
+    
+    1
+    for i in range(2, n):
+        if n % i == 0:
+            found = True  
+            
+    return found
+
+def main():
+    n = int(input("Enter an integer to test for primeness: "))
+    
+   
+    if n <= 1:
+        print(f"{n} is not a prime number.")
+    else:
+       
+        factor_was_found = check_factor_found(n)
+        
+       
+        if factor_was_found:
+            print(f"{n} is NOT a prime number.")
+        else:
+            print(f"{n} IS a prime number.")
+
+if __name__ == "__main__":
+    main()
+
